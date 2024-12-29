@@ -4,6 +4,7 @@ import StarterKit from "@tiptap/starter-kit";
 import TextStyle from "@tiptap/extension-text-style";
 import { Highlight } from "@tiptap/extension-highlight";
 import Underline from '@tiptap/extension-underline';
+import Bold from '@tiptap/extension-bold';  // Import bold extension
 import Italic from '@tiptap/extension-italic';  // Import italic extension
 import "./App.css";
 import MenuBar from "./Components/MenuBar";
@@ -20,6 +21,7 @@ const App = () => {
         multicolor: true,
       }),
       Underline,
+      Bold,  // Add bold extension
       Italic,  // Add italic extension
     ],
     content: "<p>Write here.</p>",

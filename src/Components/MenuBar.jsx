@@ -33,11 +33,20 @@ const MenuBar = ({ editor }) => {
         </button>
 
         <button
+          onClick={() => editor.chain().focus().toggleBold().run()}
+          className={editor.isActive("bold") ? "is-active btn" : ""}
+        >
+          <i className="bi bi-type-bold"></i>
+        </button>
+
+        <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
           className={editor.isActive("italic") ? "is-active btn" : ""}
         >
           <i className="bi bi-type-italic"></i>
         </button>
+
+       
       </div>
     </div>
   );
