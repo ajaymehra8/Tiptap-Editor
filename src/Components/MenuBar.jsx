@@ -20,28 +20,28 @@ const MenuBar = ({ editor }) => {
       <div className="btns">
         <button
           onClick={() => editor.chain().focus().toggleHighlight().run()}
-          className={editor.isActive("highlight") ? "is-active btn" : ""}
+          className={editor.isActive("highlight") ? "is-active " : ""}
         >
           <i className="bi bi-highlighter"></i>
         </button>
 
         <button
           onClick={() => editor.chain().focus().toggleUnderline().run()}
-          className={editor.isActive("underline") ? "is-active btn" : ""}
+          className={editor.isActive("underline") ? "is-active " : ""}
         >
           <i className="bi bi-type-underline"></i>
         </button>
 
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={editor.isActive("bold") ? "is-active btn" : ""}
+          className={editor.isActive("bold") ? "is-active " : ""}
         >
           <i className="bi bi-type-bold"></i>
         </button>
 
         <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={editor.isActive("italic") ? "is-active btn" : ""}
+          className={editor.isActive("italic") ? "is-active " : ""}
         >
           <i className="bi bi-type-italic"></i>
         </button>
