@@ -2,13 +2,15 @@ import React from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import TextStyle from "@tiptap/extension-text-style";
-import { Highlight } from "@tiptap/extension-highlight";
-import Underline from '@tiptap/extension-underline';
-import Bold from '@tiptap/extension-bold';  // Import bold extension
-import Italic from '@tiptap/extension-italic';  // Import italic extension
+import Bold from "@tiptap/extension-bold"; // Import bold extension
+import Highlight from "@tiptap/extension-highlight";
 import "./App.css";
 import MenuBar from "./Components/MenuBar";
-
+import EditorColor from "./extension/editorColor";
+import EmojiPicker from "./extension/emojiPicker";
+import ImageUpload from "./extension/imageUpload";
+import { Image } from "@tiptap/extension-image";
+import ImageNode from "./extension/resizeImage";
 // Custom Highlight and Underline Button
 
 const App = () => {
@@ -17,22 +19,24 @@ const App = () => {
     extensions: [
       StarterKit,
       TextStyle,
+      Image,
+      ImageNode,
       Highlight.configure({
         multicolor: true,
       }),
-      Underline,
-      Bold,  // Add bold extension
-      Italic,  // Add italic extension
+      EditorColor,
+      EmojiPicker,
+      ImageUpload,
+      Bold
     ],
-    content: "<p>Write here.</p>",
+    content: "<p></p>",
+    autofocus: true,
   });
 
   return (
     <div className="App">
       <MenuBar editor={editor} />
-      <EditorContent
-        editor={editor}
-      />
+      <EditorContent editor={editor} />
     </div>
   );
 };
