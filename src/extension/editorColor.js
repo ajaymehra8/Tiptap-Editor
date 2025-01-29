@@ -16,7 +16,6 @@ const EditorColor = Extension.create({
         ({ view }) => {
           // Apply the background color to the editor container
           const currentColor = view.dom.style.backgroundColor;
-console.log(color,currentColor);
           // Toggle between the color and white
           if (currentColor === color) {
             view.dom.style.color="black";

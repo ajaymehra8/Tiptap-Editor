@@ -1,8 +1,19 @@
+import { useState,useRef, useEffect } from "react";
 import React from "react";
 
 const MenuBar = ({ editor }) => {
+  const [isDarkMode, setIsDarkMode] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
  
+  const btnRef=useRef(null);
 
+useEffect(()=>{
+  if(isDarkMode){
+    if(btnRef.current)
+    btnRef?.current?.click();
+  }
+},[btnRef])
   if (!editor) return null;
   
   // Function to check if the current color is the one applied
@@ -65,6 +76,7 @@ const MenuBar = ({ editor }) => {
             console.log(editor.commands);
             editor.commands.setEditorColor("rgb(47, 47, 47)");
           }}
+          ref={btnRef}
           className={isActiveColor("rgb(47, 47, 47)") ? "is-active" : ""}
 
         >

@@ -17,7 +17,24 @@ const ImageUpload = Extension.create({
       },
     };
   },
+  
+  addKeyboardShortcuts() {
+    console.log("ImageUpload extension loaded"); 
 
+    return {
+      "Mod-l": ({ editor }) => {
+        const imageUploadExtension = editor.extensionManager.extensions.find(
+          (ext) => ext.name === 'imageUpload'
+        );
+  
+        if (imageUploadExtension) {
+          // Call the action directly
+          imageUploadExtension.config.addMenuItems()[0].action(editor);
+        }
+        return true;
+      },
+    };
+  },
   addMenuItems() {
     return [
       {

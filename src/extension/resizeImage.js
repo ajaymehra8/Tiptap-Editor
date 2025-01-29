@@ -5,7 +5,7 @@ const ImageNode = Node.create({
 
   group: "block",
   inline: false,
-  atom: true,
+  atom: false,
 
   addAttributes() {
     return {
