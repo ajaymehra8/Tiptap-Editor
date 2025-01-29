@@ -9,7 +9,6 @@ import MenuBar from "./Components/MenuBar";
 import EditorColor from "./extension/editorColor";
 import EmojiPicker from "./extension/emojiPicker";
 import ImageUpload from "./extension/imageUpload";
-import { Image } from "@tiptap/extension-image";
 import ImageNode from "./extension/resizeImage";
 // Custom Highlight and Underline Button
 
@@ -19,7 +18,6 @@ const App = () => {
     extensions: [
       StarterKit,
       TextStyle,
-      Image,
       ImageNode,
       Highlight.configure({
         multicolor: true,
