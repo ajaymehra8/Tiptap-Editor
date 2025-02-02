@@ -1,46 +1,45 @@
-import { useState,useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import React from "react";
 
 const MenuBar = ({ editor }) => {
   const [isDarkMode, setIsDarkMode] = useState(
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
- 
-  const btnRef=useRef(null);
 
-useEffect(()=>{
-  if(isDarkMode){
-    if(btnRef.current)
-    btnRef?.current?.click();
-  }
-},[btnRef])
+  const btnRef = useRef(null);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      if (btnRef.current) btnRef?.current?.click();
+    }
+  }, [isDarkMode]);
   if (!editor) return null;
-  
+
   // Function to check if the current color is the one applied
   const isActiveColor = (color) => {
-    
     return editor.storage.editorColor.editorColor === color;
   };
   const openEmojiPicker = () => {
     // Trigger the emoji picker action from your editor extension
     const emojiPickerExtension = editor.extensionManager.extensions.find(
-      (extension) => extension.name === 'emojiPicker'
+      (extension) => extension.name === "emojiPicker"
     );
     if (emojiPickerExtension) {
-      emojiPickerExtension.config.addMenuItems().action(editor); 
-    }  };
-    const openImageUpload = () => {
-      // Find the imageUpload extension
-      const imageUploadExtension = editor.extensionManager.extensions.find(
-        (ext) => ext.name === 'imageUpload'
-      );
-      console.log(imageUploadExtension.config.addMenuItems);
+      emojiPickerExtension.config.addMenuItems().action(editor);
+    }
+  };
+  const openImageUpload = () => {
+    // Find the imageUpload extension
+    const imageUploadExtension = editor.extensionManager.extensions.find(
+      (ext) => ext.name === "imageUpload"
+    );
+    console.log(imageUploadExtension.config.addMenuItems);
 
-      if (imageUploadExtension) {
-        // Call the action directly
-        imageUploadExtension.config.addMenuItems()[0].action(editor);
-      }
-    };
+    if (imageUploadExtension) {
+      // Call the action directly
+      imageUploadExtension.config.addMenuItems()[0].action(editor);
+    }
+  };
   return (
     <div className="menu-bar">
       <h1
@@ -77,7 +76,6 @@ useEffect(()=>{
           }}
           ref={btnRef}
           className={isActiveColor("rgb(47, 47, 47)") ? "is-active" : ""}
-
         >
           <i className="bi bi-moon-stars"></i>
         </button>
@@ -88,7 +86,6 @@ useEffect(()=>{
           <i className="bi bi-image"></i>
         </button>
       </div>
-     
     </div>
   );
 };
