@@ -12,10 +12,7 @@ const EmojiPicker = Extension.create({
   },
 
   addMenuItems() {
-    return [
-      {
-        name: 'emoji-picker',
-        icon: '😊',
+    return {
         action: (editor) => {
           const emojiPicker = document.createElement('div');
           emojiPicker.style.position = 'absolute';
@@ -43,8 +40,7 @@ const EmojiPicker = Extension.create({
           emojiPicker.style.top = `${top + 40}px`;
           emojiPicker.style.left = `${left}px`;
         },
-      },
-    ];
+      };
   },
 });
 

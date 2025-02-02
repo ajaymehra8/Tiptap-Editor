@@ -18,8 +18,7 @@ useEffect(()=>{
   
   // Function to check if the current color is the one applied
   const isActiveColor = (color) => {
-    // Replace `editor.storage.editorColor` with the appropriate key where the editor's color is stored
-    console.log(editor.storage.editorColor.editorColor,color);
+    
     return editor.storage.editorColor.editorColor === color;
   };
   const openEmojiPicker = () => {
@@ -28,7 +27,7 @@ useEffect(()=>{
       (extension) => extension.name === 'emojiPicker'
     );
     if (emojiPickerExtension) {
-      emojiPickerExtension.config.addMenuItems()[0].action(editor); // Trigger emoji picker action
+      emojiPickerExtension.config.addMenuItems().action(editor); 
     }  };
     const openImageUpload = () => {
       // Find the imageUpload extension
