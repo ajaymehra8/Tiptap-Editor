@@ -58,6 +58,29 @@ button.is-active {
   color: black;
   font-weight: bold;
 }
+.command-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  top: 15%;
+  left: 10%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.command-item {
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.command-item:hover,
+.command-item.active {
+  background-color: #f0f0f0;
+}
+
+
 @media (max-width:500px) {
   .ProseMirror{
     height: 70vh;

@@ -40,6 +40,10 @@ const MenuBar = ({ editor }) => {
       imageUploadExtension.config.addMenuItems()[0].action(editor);
     }
   };
+
+ 
+  
+
   return (
     <div className="menu-bar">
       <h1
@@ -85,6 +89,7 @@ const MenuBar = ({ editor }) => {
         <button onClick={openImageUpload}>
           <i className="bi bi-image"></i>
         </button>
+        
       </div>
     </div>
   );

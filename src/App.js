@@ -10,6 +10,9 @@ import EditorColor from "./extension/editorColor";
 import EmojiPicker from "./extension/emojiPicker";
 import ImageUpload from "./extension/imageUpload";
 import ImageNode from "./extension/resizeImage";
+import { SlashCommand } from "./extension/slashCommand";
+
+import CommandMenu from "./Components/CommandMenu";
 // Custom Highlight and Underline Button
 
 const App = () => {
@@ -25,9 +28,10 @@ const App = () => {
       EditorColor,
       EmojiPicker,
       ImageUpload,
+      SlashCommand,
       Bold
     ],
-    content: "<p></p>",
+    content: "<p></p>", 
     autofocus: true,
   });
 
@@ -35,6 +39,8 @@ const App = () => {
     <div className="App">
       <MenuBar editor={editor} />
       <EditorContent editor={editor} />
+      {editor && <CommandMenu editor={editor}/>}
+
     </div>
   );
 };
