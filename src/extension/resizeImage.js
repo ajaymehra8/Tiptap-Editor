@@ -2,8 +2,8 @@ import { Node } from "@tiptap/core";
 
 const ImageNode = Node.create({
   name: "image",
-  group: "block",
-  inline: false,
+  group:"inline",
+  inline:true,
   atom: false,
 
   addAttributes() {
@@ -35,8 +35,7 @@ const ImageNode = Node.create({
       const { editor } = props;
       const img = document.createElement("img");
       img.src = props.node.attrs.src;
-      img.style.cursor = "grab";
-      img.draggable = true;
+      
 
       if (props.node.attrs.width) img.style.width = `${props.node.attrs.width}px`;
       if (props.node.attrs.height) img.style.height = `${props.node.attrs.height}px`;
@@ -56,7 +55,7 @@ const ImageNode = Node.create({
           img.style.height = `${startHeight + deltaY}px`;
 
           if (editor.state.selection && editor.state.selection.empty) {
-            editor.commands.updateAttributes(props.getPos(), {
+            editor?.commands.updateAttributes(props.getPos(), {
               width: img.offsetWidth,
               height: img.offsetHeight,
             });
